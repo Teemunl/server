@@ -13,22 +13,21 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload());
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static('public'));
 
 /**
  * Näyttömoottorin konfiguraatio
  * Asettaa EJS:n näyttömoottoriksi ja määrittää views-kansion sijainnin
  */
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '../src/views'));
+app.set('views', path.join(__dirname, 'views'));
 
 /**
  * Reittien konfiguraatio
  * Käyttää tiedostojen hallintareittejä juuripolulla
  */
-app.get('/', (req, res) => {
-  res.render('index'); // Renders views/index.ejs
-});
+app.use('/', fileRoutes);
+
 /**
  * Palvelimen käynnistys
  * Kuuntelee määriteltyä porttia ja tulostaa viestin kun palvelin on valmis
