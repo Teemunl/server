@@ -4,7 +4,7 @@ const path = require('path');
 const fileRoutes = require('./routes/files');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 
 /**
  * Middleware-konfiguraatio
