@@ -32,6 +32,6 @@ app.use('/', fileRoutes);
  * Palvelimen käynnistys
  * Kuuntelee määriteltyä porttia ja tulostaa viestin kun palvelin on valmis
  */
-app.listen(80, '0.0.0.0', () => {
-  console.log('Server running on port 80');
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
